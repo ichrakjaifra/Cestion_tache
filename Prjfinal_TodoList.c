@@ -290,7 +290,7 @@ void afficherNbTachesEtat() {
     int nbTachesIncompletes = 0;
     
     for (int i = 0; i < nbTaches; i++) {
-        if (strcmp(taches[i].statut, "Complète") == 0) {
+        if (strcmp(taches[i].statut, "Finalise") == 0) {
             nbTachesCompletees++;
         } else {
             nbTachesIncompletes++;
