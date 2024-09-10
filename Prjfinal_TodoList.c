@@ -308,11 +308,13 @@ void afficherNbJoursRestants() {
     }
 }
 
+// Fonction pour obtenir la date actuelle
 Date getCurrentDate() {
-    time_t now = time(NULL);
-    struct tm *currentDateTime = localtime(&now);
+    time_t now = time(NULL);// Obtient l'heure actuelle en secondes depuis le 1er janvier 1970
+    struct tm *currentDateTime = localtime(&now);// Convertit le temps en secondes en une structure de date et heure locale
     
-    Date currentDate;
+    Date currentDate;// Crée une variable de type Date pour stocker la date actuelle
+    // Remplit la structure Date avec les informations de la date actuelle
     currentDate.jour = currentDateTime->tm_mday;
     currentDate.mois = currentDateTime->tm_mon + 1; 
     currentDate.annee = currentDateTime->tm_year + 1900; 
@@ -324,6 +326,8 @@ int calculerJoursRestants(Date deadline) {
   
     Date currentDate = getCurrentDate();
     
+    // Calcule le nombre total de jours restants jusqu'à la deadline
+    // Approche simplifiée avec 365 jours par an et 30 jours par mois
     int joursRestants = (deadline.annee - currentDate.annee) * 365 +
                         (deadline.mois - currentDate.mois) * 30 +
                         (deadline.jour - currentDate.jour);
